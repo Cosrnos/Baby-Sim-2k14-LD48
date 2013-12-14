@@ -1,0 +1,160 @@
+body,html{
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	background: #333;
+	font-family: Helvetica, Arial, Tahoma, Georgia, Sans-serif;
+}
+
+footer{
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+text-align: center;
+background: #fff;
+border-top: 3px solid #ccc;
+z-index: 99;
+}
+
+#logo{
+width: 500px;
+height: 150px;
+display: inline-block;
+background: url('assets/logo.png');
+}
+
+*:focus{
+	outline: 0;
+}
+
+#message{
+	visibility: hidden;
+	z-index: 98;
+	background: #ccc;
+	max-width: 600px;
+	min-width: 400px;
+	font-size: 24px;
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	margin-left: -325px;
+	padding: 25px;
+	max-height: 500px;
+	overflow-y: auto;
+}
+
+#sidebar{
+	float: left;
+	width: 225px;
+	background: #999;
+	height: 100%;
+	padding-left: 25px;
+}
+
+#main{
+	width: 600px;
+	margin: 00 auto;
+	padding: 20px 50px 20px 50px;
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+	font-weight: 100;
+}
+
+#dimmer{
+	visibility:  hidden;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.7);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 97;
+}
+
+button{
+	padding: 10px 20px 10px 20px;
+	border-radius: 25px;
+	border: none;
+	font-size: 24px;
+	font-weight: 600;
+	background: #666;
+	color: #fff;
+}
+
+button:hover{
+	background: #333;
+	cursor: pointer;
+}
+
+button.single{
+	width: 50%;
+	margin: 00 auto;
+}
+
+input{
+	margin-bottom: 10px;
+}
+
+input[type="text"]{
+	padding: 10px;
+	font-size: 18px;
+	border-radius: 25px;
+	border: 1px solid #333;
+}
+
+input[type="radio"]{
+	font-size: 18px;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 10px;
+}
+
+.sx > input[type=radio]{
+	display: none;
+}
+
+.sx {
+	float: left;
+	text-align: center;
+	padding: 10px;
+}
+
+.inline-group{
+	display: block;
+	clear: both;
+}
+
+.inline-group:after{
+	clear: both;
+	content: " ";
+	display: block;
+}
+
+input[type=radio] + img{
+	cursor: pointer;
+	display: block;
+	padding: 5px;
+	border: 2px solid transparent;
+}
+
+input[type=radio]:checked +img{
+	border: 2px solid #333;
+}
+
+#main button{
+	display: block;
+	background: rgba(15,255,179,1);
+	color: rgba(0,0,0,.8);
+	width: 300px;
+	margin: 00 auto;
+	margin-bottom: 20px;
+	border: 2px solid #000;
+}
+
+#main strong{
+	font-weight: 400;
+	color: rgba(15,255,179,.8);
+}
