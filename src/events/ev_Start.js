@@ -3,7 +3,7 @@ var ev_start = new BSM.Event("start");
 ev_start.OnOpen = function(){
 	base.SetMessage("<h3>Welcome!</h3><p>Welcome to Baby Simulator 2014! A game brought to you by Cosrnos.</p>"
 +"<p>You have just given birth to a beautiful child and it's up to you to make sure it grows up to be successful! Be careful though, because <strong>you only get one!</strong></p>"
-+"<p>Don't do anything that might cause it to fail in life or resent you or you'll end up in a horrible retirment home where the staff burns you with cigarettes and steals your things! Do you have what it takes to be a parent?<p>");
++"<p>Don't do anything that might cause it to fail in life or resent you or you'll end up in a horrible retirment home where the staff burns you with cigarettes and steals your things! Do you have what it takes to be a parent?<br/><em>[This game contains mature content]</em><p>");
 	base.SetMessageType(base.MessageType.CONTINUE);
 	base.ShowMessage();
 	base.SetMainCallback(function(){
@@ -61,7 +61,7 @@ ev_start.AfterGender = function(){
 ev_start.Tutorial_One = function(){
 	base.HideMessage();
 	main.SetTip("<p>In order to support a child, you often require a form of currency to purchase things such as food, diapers and toys. This currency, or <strong>\"Money\"</strong> is often obtained through slave labor and dehumanizing work often referred to as <strong>\"Jobs.\"</strong></p>"
-		+"<p>These <strong>\"Jobs\"</strong> are obtained through many different methods and you are usually able to pick one you would not hate your existance in. However, since you made the irresponsible decision of obtaining a child when you didn't have a job, you're going to have to take the first one that you can find to avoid starving your child.</p>"
+		+"<p>These <strong>\"Jobs\"</strong> are obtained through many different methods and you are usually able to pick one you would not hate your existence in. However, since you made the irresponsible decision of obtaining a child when you didn't have a job, you're going to have to take the first one that you can find to avoid starving your child.</p>"
 		+"<p>Let's find one right now!</p>");
 	main.MakeAvailable("find_job_tut");
 	main.ShowMenu();

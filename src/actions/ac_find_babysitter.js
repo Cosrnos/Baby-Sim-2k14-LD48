@@ -12,7 +12,7 @@ ac_find_babysitter.OnLoad = function(){
 				+"<p>After searching for a month, you finally found a babysitter to get that <strike>little shit</strike> <em>little angel</em> off your hands! "+baby.Name+"'s happiness will no longer decrease as much every week.</p>"
 				+"<p>You still feel a little nervous leaving your child with the old woman who runs the daycare, as her home has a distinct scent of ammonia and paint thinner. You shrug it off and leave "+baby.Name+" to play with the other kids.</p>");
 			ac_find_babysitter.stage = 1;
-			player.BabysitterCost = 50;
+			player.BabysitterCost = 150;
 			this.BtnText = "Next";
 			main.MakeAvailable("find_babysitter");
 			main.ShowMenu();

@@ -9,6 +9,8 @@ ev_roo.CheckSchedule = function(){
 };
 
 ev_roo.OnOpen = function(){
+	player.Roo_food = false;
+	player.Roo_shop = false;
 	player.Roo = true;
 	main.Clear();
 	base.SetMessage("<img src='assets/bonnaroo.png' /><h3 class='bonnaroo'>Bonnaroo!</h3>"
@@ -40,11 +42,12 @@ ev_roo.DayOne = function(){
 		+"<p class='bonnaroo'>You wake up bright and early at your campsite. You've already become friends with your neighbors, <strong>Brian</strong>, <strong>Chris</strong>, <strong>Shosha</strong> and <strong>Anthony</strong> and you're ready for your first day at bonnaroo!</p>"
 		+"<p class='bonnaroo'>You make your way to Center-roo and fill up water on the way. It's going to be a hot day and you want to be as prepared as possible!</p>"
 		+"<p class='bonnaroo'>Before going through the arch, you get hundreds of hi-fives from all of the other festival goers! Everyone here is happy just to be alive and you can't even begin to describe how much love surrounds you!</p>"
-		+"<p class='bonnaroo'>The friendly gatekeepers check your belongings and let you in!<br/>(In this demo you are only able to lie in the grass!)</p>");
+		+"<p class='bonnaroo'>The friendly gatekeepers check your belongings and let you in!</p>");
 	main.MakeAvailable("roo_lay");
-	main.MakeAvailable("roo_food");
-	main.MakeAvailable("roo_friend");
-	main.MakeAvailable("roo_shop");
+	if(!player.Roo_food)
+		main.MakeAvailable("roo_food");
+	if(!player.Roo_shop)
+		main.MakeAvailable("roo_shop");
 	main.MakeAvailable("roo_show");
 	base.HideMessage();
 	main.ShowMenu();
@@ -57,9 +60,10 @@ ev_roo.DayTwo = function(){
 		+"<p class='bonnaroo'>As you have your breakfast and your morning salad, you can't help but feel at peace. This place is more than just a party, that much is apparent. There's something different about it...</p>"
 		+"<p class='bonnaroo'>You make your way to center-roo again and are once again lost in the middle of everything.</p>");
 	main.MakeAvailable("roo_lay");
-	main.MakeAvailable("roo_food");
-	main.MakeAvailable("roo_friend");
-	main.MakeAvailable("roo_shop");
+	if(!player.Roo_food)
+		main.MakeAvailable("roo_food");
+	if(!player.Roo_shop)
+		main.MakeAvailable("roo_shop");
 	main.MakeAvailable("roo_show");
 	base.HideMessage();
 	main.ShowMenu();
@@ -72,9 +76,10 @@ ev_roo.DayThree = function(){
 		+"<p class='bonnaroo'>Waking up to the Tennesee heat is proving tiresome, but you're fine with it as long as you're waking up here. You feel in sync with everything around you and have adjusted to living <strong>in here</strong>.</p>"
 		+"<p class='bonnaroo'>On your way to center-roo, you start singing a song just because you feel like it, and half the camp joins in with you.</p>");
 	main.MakeAvailable("roo_lay");
-	main.MakeAvailable("roo_food");
-	main.MakeAvailable("roo_friend");
-	main.MakeAvailable("roo_shop");
+	if(!player.Roo_food)
+		main.MakeAvailable("roo_food");
+	if(!player.Roo_shop)
+		main.MakeAvailable("roo_shop");
 	main.MakeAvailable("roo_show");
 	base.HideMessage();
 	main.ShowMenu();
@@ -87,8 +92,10 @@ ev_roo.DayFour = function(){
 		+"<p class='bonnaroo'>It's your last day on the farm before you must head home and you're ready to make the most of it. You skip taking a shower for the fourth day in a row and opt instead to spend your time saying hello to the people around you. You've embraced the bonnaroo lifestyle and aren't afraid to simply exist.</p>"
 		+"<p class='bonnaroo'>You decide to take a taxi around camp before heading to center-roo and wave to everyone around you. You can hear the shouts of \"Bonnaroooooo!\" as they echo across the camp. You are home.</p>");
 	main.MakeAvailable("roo_lay");
-	main.MakeAvailable("roo_food");
-	main.MakeAvailable("roo_shop");
+	if(!player.Roo_food)
+		main.MakeAvailable("roo_food");
+	if(!player.Roo_shop)
+		main.MakeAvailable("roo_shop");
 	main.MakeAvailable("roo_show");
 	base.HideMessage();
 	main.ShowMenu();

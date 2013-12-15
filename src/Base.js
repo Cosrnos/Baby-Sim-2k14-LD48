@@ -214,9 +214,47 @@ BSM.Base = (function(){
 	that.EndGame = function(){
 		//Called when Failed
 		main.Clear();
+		var override = "";
+		if(baby.Name == "Kim Kardashian")
+			override = "Kim Kardashian will grow up to be <strong>extremely famous</strong> as a <strong>super-model</strong>. Unfortunately, most people will simply remember her as a <strong>low-end reality tv star</strong> and for her philanthropic work in the <strong>sex tape industry.</strong> Nevertheless, Kim will be a <strong>Good Person</strong> and will go on to make you a very proud parent. A very proud parent that always gets <strong>10%</strong> of all "+baby.HisHer()+" earnings!";
+		if(baby.Name == "Cosrnos" || baby.Name == "Alex Roth" || baby.Name == "cosmos")
+			override = "Not much is known about what cosrnos will grow up to be. One thing is for sure: he will participate in a <strong>game jam</strong> and develop a game that simulates the growth of <strong>babies</strong> with a lot of <strong>bad jokes</strong> in it.";
+		if(baby.Name == "Charlie Sheen")
+			override = "Charlie Sheen will grow up to do a lot of <strong>Cocaine</strong> and hook up with a lot of <strong>Strippers</strong>. He will always be <strong>#Winning</strong> in life!";
+		if(baby.Name == "Skrillex")
+			override = "Skrillex will grow up to be a <strong>music producer</strong> of great fame. However, he will be even more famous for his <strong>long black hair</strong> and <strong>thick rimmed glasses.</strong> He will also drop <strong>many a bass</strong>.";
+		if(baby.Name == "Doctor Who" || baby.Name == "Superwholockian")
+			override = "Your child has been tainted with <strong>the fandom</strong> and will grow up to spend most of its time on a blogging website filled with <strong>angsty teenagers</strong> and people pushing for <strong>social justice</strong>.";
+		if(baby.Name == "Andrew Hussie")
+			override = "Andrew Hussie will grow up to be a <strong>webcomic artist</strong> with a large following, though most people won't know what the comic is about. He will also grow up to have an <strong>intense love for horses</strong> and a <strong>strong appetite for cake</strong>.";
+
+		var career = baby.GetCareer();
+
+		var mainState = baby.GetLargestState();
+		var text = "For instance, your actions have already taught your child how to function in society. On this path, your child is probably going to turn out to be a <strong>"+baby.GoodBad()+" person!</strong>. ";
+		text += "Based on its upbringing, your child is going to grow up to be <strong>"+career+"</strong>!<br/>";
+		if(mainState != "none"){
+			var wording = "";
+			switch(mainState){
+				case "street_cred":
+					wording = "a lot of <strong>Street Cred</strong>";
+				break;
+				case "abandonment_issues":
+					wording = "quite a few <strong>Abandonment Issues</strong>";
+				break;
+				case "fear_of_heights":
+					wording = "a debilitating <strong>Fear of Heights</strong>";
+				break;
+			}
+			text = "It looks like you've also caused your child to have "+wording;
+		}
+
+			if(override != "")
+				text = override;
 
 		this.SetMessage("<h3>There "+baby.HeShe()+" goes!</h3>"
-			+"<p>It's come to the point where "+baby.Name+" is all grown up! Since this is just an early demo of the game, it's assumed that "+baby.HeShe()+" has become very successful and loves you quite a bit!</p>"
+			+"<p>It's come to the point where "+baby.Name+" is three years old! Since this is a demo, the game stops here! However, we can already tell a lot about your baby!</p>"
+			+"<p>"+text+"</p>"
 			+"<hr/>"
 			+"<p>Thanks for testing out the first version of <strong>Baby Simulator 2k14!</strong> I'm glad to have your support in this development process. If you wouldn't mind <a href='https://docs.google.com/forms/d/13rSg37PvrCxnT_PskYbf8hBSvt4SQaAP1oogHh21Fp8/viewform' target='_blank'>taking a brief survey for me,</a> that would mean the world to me! I'm always looking to improve my games and my own programming, so let me know what you liked, what you didn't, and if you found any bugs!</p>"
 			+"<p>Happy Holidays, and Thanks for Playing!</p>"

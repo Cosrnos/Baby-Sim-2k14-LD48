@@ -13,7 +13,8 @@ ac_roo_lay.OnLoad = function(){
 		bands = "<strong>Justice</strong>, <strong>Sigur Ros</strong>, <strong>Regina Spektor</strong> and <strong>LCD Soundsystem</strong>";
 	main.SetTip("<h3>A world away...</h3>"
 		+"<p>You decide to spend the day just laying in the grass, appreciating the fact you are alive. This place is so magical, not even the game creator's jokes can be found.</p>"
-		+"<p>You lay back and let the sounds of "+bands+" wash over you.");
+		+"<p>You lay back and let the sounds of "+bands+" wash over you.<br/>(Baby gains 2 Intelligence!)");
+	baby.AddInt(2);
 	main.AddButton("nextDay","Next",function(){
 		ev_roo.NextDay();
 	});

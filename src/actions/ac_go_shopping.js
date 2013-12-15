@@ -12,8 +12,15 @@ ac_go_shopping.OnLoad = function(){
 	main.AddButton("store_grocery","Grocery Store",function(){
 		main.Clear();
 		//Grocery store stuff here.
+		additional = "";
+		if((baby.Years() == 0 && player.Money < 400) || (baby.Years() == 1 && player.Money < 400) | (baby.Years() == 2 && player.Money < 450))
+			additional = "<p><em>You don't have enough money to shop here!</em></p>";
 		main.SetTip("<h3>The Grocery Store</h3>"
-			+"<p>You enter the grocery store and grab a cart. What are you going to buy for your child today?</p>");
+			+"<p>You enter the grocery store and grab a cart. What are you going to buy for your child today?</p>"
+			+additional);
+
+
+
 
 		if(baby.GetYears() < 1){
 			//Milk
@@ -53,7 +60,7 @@ ac_go_shopping.OnLoad = function(){
 
 				main.SetTip("<h3>Baby Carrots!</h3>"
 					+"<p>You've purchased 6 Months worth of carrots!</p>");
-				player.SpendMoney(290);
+				player.SpendMoney(590);
 				baby.FoodLeft += 6;
 				main.AddButton("leave_store","Leave Store",function(){
 					ac_go_shopping.OnLoad();
@@ -69,7 +76,7 @@ ac_go_shopping.OnLoad = function(){
 
 				main.SetTip("<h3>Kibble & Bits!</h3>"
 					+"<p>You've purchased 4 months worth of Dog Food!</p>");
-				player.SpendMoney(250);
+				player.SpendMoney(450);
 				baby.FoodLeft += 4;
 				main.AddButton("leave_store","Leave Store",function(){
 					ac_go_shopping.OnLoad();
@@ -89,8 +96,11 @@ ac_go_shopping.OnLoad = function(){
 	main.AddButton("store_toys","Toy Store",function(){
 		main.Clear();
 		//Toy store stuff here.
+		if((baby.Years() == 0 && player.Money < 50) || (baby.Years() == 1 && player.Money < 100) | (baby.Years() == 2 && player.Money < 250))
+			additional = "<p><em>You don't have enough money to shop here!</em></p>";
 		main.SetTip("<h3>The Toy Store</h3>"
-			+"<p>"+baby.Name+" tries to sprint through the toystore as soon as you enter it, but is quickly pulled back. Thank god for that leash you bought "+baby.HimHer()+", or "+baby.HeShe()+" would be long gone by now!</p>");
+			+"<p>"+baby.Name+" tries to sprint through the toystore as soon as you enter it, but is quickly pulled back. Thank god for that leash you bought "+baby.HimHer()+", or "+baby.HeShe()+" would be long gone by now!</p>"
+			+additional);
 
 		if(baby.GetYears() < 1){
 			//Rattle
@@ -132,6 +142,7 @@ ac_go_shopping.OnLoad = function(){
 				main.SetTip("<h3>Raising the dead</h3>"
 					+"<p>It's never too early to introduce your child to the dark arts!</p>");
 				player.SpendMoney(100);
+				baby.AddKarma(-1);
 				//TODO: Set affinity
 				baby.AddInt(1);
 				baby.AddHappiness(10);
@@ -151,6 +162,7 @@ ac_go_shopping.OnLoad = function(){
 				baby.AddHappiness(10);
 				//TODO: Set Affinity
 				baby.AddInt(1);
+				baby.AddKarma(1);
 				main.AddButton("leave_store","Leave Store",function(){
 					ac_go_shopping.OnLoad();
 				});

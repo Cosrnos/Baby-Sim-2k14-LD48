@@ -17,6 +17,41 @@ var Baby = function(pName) {
 	var health = 100;
 	var happiness = 50;
 	var karma = 0; //If positive: give good life events
+	var states = [];
+
+	that.AddState = function(pState){
+		if(typeof states[pState] == 'undefined')
+			states[pState] = 1;
+		else
+			states[pState] = states[pState] + 1;
+	};
+
+	that.GetLargestState = function(){
+		var largest = "none";
+		var lAmt = 0;
+		for(var i in states){
+			if(states[i] < lAmt)
+				continue;
+			largest = i;
+			lAmt = states[i];
+		}
+		return largest;
+	};
+
+	that.AddKarma = function(pAmount){
+		karma += pAmount;
+	};
+
+	that.GoodBad = function(){
+		if(karma >= 0)
+			return "good";
+		else
+			return "bad";
+	}
+
+	that.GetKarma = function(){
+		return karma;
+	};
 
 	that.InSchool = false;
 
@@ -95,16 +130,16 @@ var Baby = function(pName) {
 	};
 
 	that.GetSpeed = function(){
-		if(str < 10){
+		if(str < 5){
 			return "Below Average";
 		}
-		if(str < 20){
+		if(str < 10){
 			return "Average";
 		}
-		if(str < 30){
+		if(str < 15){
 			return "Above Average";
 		}
-		if(str < 40){
+		if(str < 20){
 			return "Cheetah";
 		}
 		return "Faster than sound!"		
@@ -115,19 +150,51 @@ var Baby = function(pName) {
 	};
 
 	that.GetInt = function(){
-		if(str < 10){
+		if(str < 5){
 			return "Below Average";
 		}
-		if(str < 20){
+		if(str < 10){
 			return "Average";
 		}
-		if(str < 30){
+		if(str < 15){
 			return "Above Average";
 		}
-		if(str < 40){
+		if(str < 20){
 			return "Super Smart";
 		}
 		return "Genius"		
+	};
+
+	that.GetCareer = function(){
+		if(str > 30 && str > speed && str > intelligence){
+			return "a Professional Bodybuilder"
+		}
+		if(intelligence > 30 && intelligence > speed && intelligence > str){
+			return "a Scientist who cures all disease"
+		}
+		if(speed > 30 && speed > str && speed > intelligence){
+			return "an Olympic runner";
+		}
+		if(speed > 20 && str > 20 && intelligence > 20){
+			if(karma >= 0)
+				return "the next Jesus";
+			else
+				return "the Anti-christ";
+		}
+		if( intelligence > 15 && speed < 10 && str < 10)
+			return "a Brony";
+		if(speed > 15 && str > 15)
+			return "a Gym Teacher";
+		if(intelligence > 15){
+			if(karma >= 0)
+				return "a School Teacher";
+			else
+				return "a Lawyer";
+		}
+		if(this.GetLargestState() == "abandonment_issues" && karma <= 0 && intelligence < 15)
+			return "a future recovering alcoholic!";
+
+		return "a freeloader";
 	};
 
 	that.GetRInt = function(){
@@ -145,16 +212,16 @@ var Baby = function(pName) {
 	};
 
 	that.GetStr = function(){
-		if(str < 10){
+		if(str < 5){
 			return "Below Average";
 		}
-		if(str < 20){
+		if(str < 10){
 			return "Average";
 		}
-		if(str < 30){
+		if(str < 15){
 			return "Above Average";
 		}
-		if(str < 40){
+		if(str < 20){
 			return "Super Strength";
 		}
 		return "Bodybuilder"
@@ -238,7 +305,7 @@ var Baby = function(pName) {
 		if(player.BabysitterCost == 0 && !this.InSchool){
 			happiness -= 10;
 		}else{
-			happiness -= 2;
+			happiness -= 4;
 		}
 
 		if(hunger >= 100)
