@@ -3,6 +3,12 @@ var BSM = BSM || {};
 BSM.Event = function(pName){
 	var that = {};
 
+	that.Random = false;
+	that.Chance = 0;
+	that.Scheduled = false;
+
+	that.CheckSchedule = function(){ return false; };
+
 	that.Name = pName;
 
 	that.OnOpen = function(){

@@ -30,6 +30,18 @@ var Baby = function(pName) {
 		return years;
 	};
 
+	that.Years = function(){
+		return this.GetYears();
+	};
+
+	that.GetMonths = function(){
+		return months;
+	};
+
+	that.Months = function(){
+		return this.GetMonths();
+	};
+
 	that.UpdateStats = function(){
 		document.getElementById("name").innerHTML = this.Name;
 		document.getElementById("age").innerHTML = years+" years and "+months+" months";
@@ -199,14 +211,12 @@ var Baby = function(pName) {
 	};
 
 	that.NextTurn = function(){
-		weeks += 1;
-		if(weeks >= 4){
-			months += 1;
-			weeks = 0;
-			if(months >= 12)
-				years += 1;
+		months += 1;
+		if(months >= 12){
+			years += 1;
+			months = 0;
 		}
-		if(years >= 18)
+		if(years >= 3)
 			base.EndGame();
 
 		if(this.FoodLeft <= 0){
@@ -218,8 +228,12 @@ var Baby = function(pName) {
 			this.FoodLeft -= 1;
 		}
 
-		if(player.BabysitterCost > 0 && !this.InSchool)
-			player.Money -= player.BabysitterCost;
+		if(player.BabysitterCost > 0 && !this.InSchool){
+			if(player.Money >= player.BabysitterCost)
+				player.Money -= player.BabysitterCost;
+			else
+				baby.happiness -= 10;
+		}
 
 		if(player.BabysitterCost == 0 && !this.InSchool){
 			happiness -= 10;

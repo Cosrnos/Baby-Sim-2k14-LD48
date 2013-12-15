@@ -17,27 +17,29 @@ ac_go_shopping.OnLoad = function(){
 
 		if(baby.GetYears() < 1){
 			//Milk
-			main.AddButton("purchase_milk","Milk - 4 weeks - $200",function(){
-				main.Clear();
+			if(player.Money >= 400)
+				main.AddButton("purchase_milk","Milk - 4 Months - $400",function(){
+					main.Clear();
 
-				main.SetTip("<h3>Got Milk!</h3>"
-					+"<p>You've purchased 4 weeks worth of milk!</p>");
-				player.SpendMoney(200);
-				baby.FoodLeft += 4;
-				main.AddButton("leave_store","Leave Store",function(){
-					ac_go_shopping.OnLoad();
+					main.SetTip("<h3>Got Milk!</h3>"
+						+"<p>You've purchased 4 Months worth of milk!</p>");
+					player.SpendMoney(400);
+					baby.FoodLeft += 4;
+					main.AddButton("leave_store","Leave Store",function(){
+						ac_go_shopping.OnLoad();
+					});
+
+					main.ShowMenu();
 				});
-
-				main.ShowMenu();
-			});
 		}else if(baby.GetYears() < 2){
 			//Soft Foods
-			main.AddButton("purchase_peas","Mushed Peas - 4 weeks - $200",function(){
+			if(player.Money >= 400)
+			main.AddButton("purchase_peas","Mushed Peas - 4 Months - $400",function(){
 				main.Clear();
 
 				main.SetTip("<h3>You got Peas!</h3>"
-					+"<p>You've purchased 4 weeks worth of peas!</p>");
-				player.SpendMoney(200);
+					+"<p>You've purchased 4 Months worth of peas!</p>");
+				player.SpendMoney(400);
 				baby.FoodLeft += 4;
 				main.AddButton("leave_store","Leave Store",function(){
 					ac_go_shopping.OnLoad();
@@ -45,11 +47,12 @@ ac_go_shopping.OnLoad = function(){
 
 				main.ShowMenu();
 			});
-			main.AddButton("purchase_carrots","Soft Carrots - 6 weeks - $290",function(){
+		if(player.Money >= 590)
+			main.AddButton("purchase_carrots","Soft Carrots - 6 Months - $590",function(){
 				main.Clear();
 
 				main.SetTip("<h3>Baby Carrots!</h3>"
-					+"<p>You've purchased 6 weeks worth of carrots!</p>");
+					+"<p>You've purchased 6 Months worth of carrots!</p>");
 				player.SpendMoney(290);
 				baby.FoodLeft += 6;
 				main.AddButton("leave_store","Leave Store",function(){
@@ -60,11 +63,12 @@ ac_go_shopping.OnLoad = function(){
 			});
 		}else{
 			//Everything else.
-			main.AddButton("purchase_dgfood","Dog Food - 4 weeks - $250",function(){
+			if(player.Money >= 450)
+			main.AddButton("purchase_dgfood","Dog Food - 4 Months - $450",function(){
 				main.Clear();
 
-				main.SetTip("<h3>Got Milk!</h3>"
-					+"<p>You've purchased 4 weeks worth of Dog Food!</p>");
+				main.SetTip("<h3>Kibble & Bits!</h3>"
+					+"<p>You've purchased 4 months worth of Dog Food!</p>");
 				player.SpendMoney(250);
 				baby.FoodLeft += 4;
 				main.AddButton("leave_store","Leave Store",function(){
@@ -90,13 +94,14 @@ ac_go_shopping.OnLoad = function(){
 
 		if(baby.GetYears() < 1){
 			//Rattle
+			if(player.Money >= 50)
 			main.AddButton("purchase_rattle","Rattle - $50",function(){
 				main.Clear();
 
 				main.SetTip("<h3>Oh sweet headache...</h3>"
 					+"<p>"+baby.Name+" seems to be delighted with "+baby.HisHer()+" new rattle!</p>");
 				player.SpendMoney(50);
-				baby.AddHappiness(5);
+				baby.AddHappiness(10);
 				baby.AddStr(1);
 				main.AddButton("leave_store","Leave Store",function(){
 					ac_go_shopping.OnLoad();
@@ -104,13 +109,14 @@ ac_go_shopping.OnLoad = function(){
 
 				main.ShowMenu();
 			});
+			if(player.Money >= 50)
 			main.AddButton("purchase_binkie","Pacifier - $50",function(){
 				main.Clear();
 
 				main.SetTip("<h3>This baby sucks!</h3>"
-					+"<p>"+baby.Name+" stares up ahead in quiet contemplation as "+baby.HeShe()+" sucks on +"+baby.HisHer()+" new pacifier.</p>");
+					+"<p>"+baby.Name+" stares up ahead in quiet contemplation as "+baby.HeShe()+" sucks on "+baby.HisHer()+" new pacifier.</p>");
 				player.SpendMoney(50);
-				baby.AddHappiness(5);
+				baby.AddHappiness(10);
 				baby.AddInt(1);
 				main.AddButton("leave_store","Leave Store",function(){
 					ac_go_shopping.OnLoad();
@@ -119,6 +125,7 @@ ac_go_shopping.OnLoad = function(){
 				main.ShowMenu();
 			});			
 		}else if(baby.GetYears() < 2){
+			if(player.Money >= 100)
 			main.AddButton("purchase_necro","Baby's First Necronomicon - $100",function(){
 				main.Clear();
 
@@ -127,18 +134,21 @@ ac_go_shopping.OnLoad = function(){
 				player.SpendMoney(100);
 				//TODO: Set affinity
 				baby.AddInt(1);
+				baby.AddHappiness(10);
 				main.AddButton("leave_store","Leave Store",function(){
 					ac_go_shopping.OnLoad();
 				});
 
 				main.ShowMenu();
 			});
+		if(player.Money >= 100)
 			main.AddButton("purchase_bible","The Baby Bible - $100",function(){
 				main.Clear();
 
 				main.SetTip("<h3>Oh Lordy!</h3>"
 					+"<p>And the lord said 'Let there be light' and then little "+baby.Name+" shit "+baby.HisHer()+" pants.</p>");
 				player.SpendMoney(100);
+				baby.AddHappiness(10);
 				//TODO: Set Affinity
 				baby.AddInt(1);
 				main.AddButton("leave_store","Leave Store",function(){
@@ -149,6 +159,7 @@ ac_go_shopping.OnLoad = function(){
 			});
 		}else{
 			//Everything else.
+			if(player.Money >= 250)
 			main.AddButton("purchase_soccer","Soccer Ball - $250",function(){
 				main.Clear();
 
@@ -157,6 +168,37 @@ ac_go_shopping.OnLoad = function(){
 				player.SpendMoney(250);
 				baby.AddSpeed(1);
 				baby.AddStr(1);
+				baby.AddHappiness(20);
+				main.AddButton("leave_store","Leave Store",function(){
+					ac_go_shopping.OnLoad();
+				});
+
+				main.ShowMenu();
+			});
+		if(player.Money >= 300)
+			main.AddButton("purchase_chess","Chess Set - $300",function(){
+				main.Clear();
+
+				main.SetTip("<h3>Checkmate!</h3>"
+					+"<p>Learning to play chess can be one of the most beneficial things you can do for a child while also securing it's future status as a nerd.</p>");
+				player.SpendMoney(300);
+				baby.AddInt(2);
+				baby.AddHappiness(20);
+				main.AddButton("leave_store","Leave Store",function(){
+					ac_go_shopping.OnLoad();
+				});
+
+				main.ShowMenu();
+			});
+		if(player.Money >= 500)
+			main.AddButton("purchase_videoGame","Video Game - $500",function(){
+				main.Clear();
+
+				main.SetTip("<h3>This isn't meta at all!</h3>"
+					+"<p>"+baby.Name+"'s hand-eye coordination has improved greatly but its sex appeal has taken a sharp drop!<br/>(Alternative Joke: <strong>Call of Doodie</strong>)</p>");
+				player.SpendMoney(500);
+				baby.AddSpeed(2);
+				baby.AddHappiness(20);
 				main.AddButton("leave_store","Leave Store",function(){
 					ac_go_shopping.OnLoad();
 				});

@@ -50,7 +50,7 @@ ev_start.AfterGender = function(){
 	base.HideMessage();
 
 	baby.SetGender(gender);
-	base.SetMessage("<p>Excellent! "+baby.Name+" is a "+baby.GetGender()+"!</p>"
+	base.SetMessage("<h3>It's a...</h3><p>Excellent! "+baby.Name+" is a "+baby.GetGender()+"!</p>"
 		+"<p>Parenting can be a lot of hard work and it's up to you to make sure this baby doesn't turn into something horrible like a cannibal or a Washington Politician.</p>"
 		+"<p>Before we begin, let's learn the basics of parenting!</p>");
 	base.SetMessageType(base.MessageType.OK);

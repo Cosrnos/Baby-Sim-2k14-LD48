@@ -93,7 +93,98 @@ BSM.Player = function(){
 				}
 			}];
 		}else{
-			//do the thing...
+			jobs = [{
+				Title: "Server",
+				Pay: 300.00,
+				NextPromotion: "Manager",
+				OnPromotion: function(){
+					this.Title = "Manager";
+					this.Pay = 400.00;
+					this.NextPromotion = "District Manager";
+					this.OnPromotion = function(){
+						this.Title = "District Manager";
+						this.Pay = 500.00;
+						this.NextPromotion = "Restaurant Director";
+						this.OnPromotion = function(){
+							this.Title = "Restaurant Director";
+							this.Pay = 750;
+							this.NextPromotion = "Restaurant Director";
+							this.OnPromotion = function(){
+								this.Pay += 250;
+							};
+						};
+					};
+				}
+			},
+			{
+				Title: "Cashier",
+				Pay: 300.00,
+				NextPromotion: "Supervisor",
+				OnPromotion: function(){
+					this.Title = "Supervisor";
+					this.Pay = 400.00;
+					this.NextPromotion = "Department Manager";
+					this.OnPromotion = function(){
+						this.Title = "Department Manager";
+						this.Pay = 500.00;
+						this.NextPromotion = "Store Owner";
+						this.OnPromotion = function(){
+							this.Title = "Store Owner";
+							this.Pay = 750;
+							this.NextPromotion = "Store Owner";
+							this.OnPromotion = function(){
+								this.Pay += 250;
+							};
+						};
+					};
+				}
+			},
+			{
+				Title: "Legal Assistant",
+				Pay: 350.00,
+				NextPromotion: "Lawyer",
+				OnPromotion: function(){
+					this.Title = "Lawyer";
+					this.Pay = 600.00;
+					this.NextPromotion = "Partner";
+					this.OnPromotion = function(){
+						this.Title = "Partner";
+						this.Pay = 1000.00;
+						this.NextPromotion = "Firm Owner";
+						this.OnPromotion = function(){
+							this.Title = "Firm Owner";
+							this.Pay = 1250;
+							this.NextPromotion = "Firm Owner";
+							this.OnPromotion = function(){
+								this.Pay += 350;
+							};
+						};
+					};
+				}
+			},
+			{
+				Title: "Janitor",
+				Pay: 200.00,
+				NextPromotion: "Head Janitor",
+				OnPromotion: function(){
+					this.Title = "Head Janitor";
+					this.Pay = 300.00;
+					this.NextPromotion = "Cleaning Specialist";
+					this.OnPromotion = function(){
+						this.Title = "Cleaning Specialist";
+						this.Pay = 500.00;
+						this.NextPromotion = "God of Cleaning Supplies";
+						this.OnPromotion = function(){
+							this.Title = "God of Cleaning Supplies";
+							this.Pay = 800;
+							this.NextPromotion = "God of Cleaning Supplies";
+							this.OnPromotion = function(){
+								this.Pay += 350;
+							};
+						};
+					};
+				}
+			}];
 		}
 		var key = Math.floor(Math.random()*jobs.length);
 

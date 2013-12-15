@@ -52,6 +52,29 @@ BSM.Base = (function(){
 			that.OnReady();
 	};
 
+	that.CheckEvents = function(){
+		for(var i in this.Scenarios){
+			var e = this.Scenarios[i];
+			if(!e.Random && !e.Scheduled)
+				continue;
+
+			if(e.Scheduled){
+				if(e.CheckSchedule()){
+					this.SetEvent(e.Name);
+					return true;
+				}
+				continue;
+			}
+
+			var rnd = Math.floor(Math.random()*100)+1;
+			if(rnd >= e.Chance)
+				continue;
+			this.SetEvent(e.Name);
+			return true;
+		}
+		return false;
+	};	
+
 	that.RegisterAction = function(pAction){
 		main.RegisterAction(pAction.Name,pAction);
 		
@@ -152,7 +175,7 @@ BSM.Base = (function(){
 			};
 		}
 		if(that.Var.MessageType == that.MessageType.OKCANCEL || that.Var.MessageType == that.MessageType.NEXTPREV || that.Var.MessageType == that.MessageType.ACCEPTDENY){
-			document.getElementById(msg_btn_B).onclick = function(){
+			document.getElementById("msg_btn_B").onclick = function(){
 				prevCb();
 			};
 		}
@@ -193,7 +216,7 @@ BSM.Base = (function(){
 		main.Clear();
 
 		this.SetMessage("<h3>There "+baby.HeShe()+" goes!</h3>"
-			+"<p>It's come to the point where "+baby.Name+" is all grown up! Since this is just a demo of the game, it's assumed that "+baby.HeShe()+" has become very successful and loves you quite a bit!</p>"
+			+"<p>It's come to the point where "+baby.Name+" is all grown up! Since this is just an early demo of the game, it's assumed that "+baby.HeShe()+" has become very successful and loves you quite a bit!</p>"
 			+"<hr/>"
 			+"<p>Thanks for testing out the first version of <strong>Baby Simulator 2k14!</strong> I'm glad to have your support in this development process. If you wouldn't mind <a href='https://docs.google.com/forms/d/13rSg37PvrCxnT_PskYbf8hBSvt4SQaAP1oogHh21Fp8/viewform' target='_blank'>taking a brief survey for me,</a> that would mean the world to me! I'm always looking to improve my games and my own programming, so let me know what you liked, what you didn't, and if you found any bugs!</p>"
 			+"<p>Happy Holidays, and Thanks for Playing!</p>"

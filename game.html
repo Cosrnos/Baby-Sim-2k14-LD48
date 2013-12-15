@@ -26,6 +26,7 @@
 		//Load Events
 		base.LoadEvent("start");
 		base.LoadEvent("main");
+		base.LoadEvent("bonnaroo");
 		//Load Actions
 		//Tutorial:
 			base.LoadAction("find_job_tut");
@@ -34,11 +35,15 @@
 			base.LoadAction("interact_baby_tut");
 		//One time actions:
 			base.LoadAction("find_babysitter");
+		//Event Specific
+		//Bonnaroo:
+			base.LoadAction("roo_lay");
+		//End Event Specific
 		//Main:
 			base.LoadAction("find_job");
 			base.LoadAction("go_work");
 			base.LoadAction("go_shopping");
-//			base.LoadAction("interact_baby");
+			base.LoadAction("interact_baby");
 		base.OnReady = function(){
 			main.Bind("main");
 			base.SetEvent("start");
@@ -51,7 +56,7 @@
 		<h3>Your Assets</h3>
 		Money: <span id="cash">$200</span><br/>
 		Job: <span id="job">Unemployed</span><br/>
-		Pay: <span id="pay">$0</span>/week<br/>
+		Pay: <span id="pay">$0</span><br/>
 
 		<h3>Your Child</h3>
 		<h4><span id="name">Spawn #1203</span></h4>

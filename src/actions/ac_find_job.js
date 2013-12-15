@@ -6,8 +6,8 @@ ac_find_job.OnLoad = function(){
 	//Generate random job...
 	player.NewJob();
 	base.SetMessage("<p>Congratulations! You've found a new job as a <strong>"+player.Job.Title+"</strong>!</p>"
-		+"<p>You are now making <strong>$"+player.Job.Pay+" per week.</p>"
-		+"<p>Your next promotion will advance you to "+player.Job.NextPromotion+"!</p>");
+		+"<p>You are now making <strong>$"+player.Job.Pay+"</strong> per month.</p>"
+		+"<p>Your next promotion will advance you to <strong>"+player.Job.NextPromotion+"</strong>!</p>");
 	base.SetMessageType(base.MessageType.OK);
 	base.SetMainCallback(ac_find_job.OnUnload);
 	base.ShowMessage();
@@ -16,7 +16,8 @@ ac_find_job.OnLoad = function(){
 ac_find_job.OnUnload = function(){
 	main.MakeUnavailable("find_job");
 	base.HideMessage();
-	ev_main.NextTurn();
+	baby.NextTurn();
+	ev_main.Route();
 };
 
 ac_find_job.Register();
