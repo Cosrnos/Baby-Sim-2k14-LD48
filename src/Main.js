@@ -40,6 +40,12 @@ BSM.Main = (function(){
 		availableActions[pName] = actions[pName];
 	};
 
+	that.AddButton = function(pName,pButtonText,pCallback){
+		var button = new BSM.Action(pName,pButtonText);
+		button.OnLoad = pCallback;
+		availableActions[pName] = button;
+	};
+
 	that.MakeUnavailable = function(pName){
 		if(typeof availableActions[pName] == 'undefined')
 			return false;
@@ -67,10 +73,11 @@ BSM.Main = (function(){
 			return false;
 
 		return actions[pRef];
-	}
+	};
 
 	that.Clear = function(){
 		div.innerHTML = "";
+		availableActions = [];
 	};
 
 

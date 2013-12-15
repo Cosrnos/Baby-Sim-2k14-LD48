@@ -15,9 +15,11 @@ ac_interact_baby_tut.OnLoad = function(){
 		main.ShowMenu();
 	break;
 	case "hold_baby":
+		baby.AddHappiness(40);
+		baby.AddStr(1);
 		base.SetMessage("<h3>No longer lonely!</h3>"
 			+"<p>Wow! You're doing great holding that baby! Most people don't even know how to do that. You would think it'd be common knowledge but you'd be surprised how many people mess that up.</p>"
-			+"<p>With this knowledge of interacting with babies, you are now equipped to help shape the future of the little grease monkey!</p>");
+			+"<p>With this knowledge of interacting with babies, you are now equipped to help shape the future of the little grease monkey! Any interaction will impact the child. For instance, holding it has increased it's happiness by 40 and we've also given it a growth hormone to make it a little bit stronger!</p>");
 		base.SetMessageType(base.MessageType.CONTINUE);
 		base.SetMainCallback(function(){
 			ev_start.Finish_Tutorial();

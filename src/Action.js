@@ -1,4 +1,5 @@
 var BSM = BSM || {};
+
 BSM.Action = function(pName,pButtonText){
 	var that = {};
 

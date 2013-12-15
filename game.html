@@ -14,18 +14,31 @@
 	</script>
 	<script src="src/Main.js">
 	</script>
+	<script src="src/Player.js">
+	</script>
 	<!-- Make it happen! -->
 	<script>
+	var player;
 	window.onload = function(){
+		//Initialize Player
+		base.Var.Player = new BSM.Player();
+		player = base.Var.Player;
 		//Load Events
 		base.LoadEvent("start");
 		base.LoadEvent("main");
 		//Load Actions
 		//Tutorial:
-			base.LoadAction("find_job");
+			base.LoadAction("find_job_tut");
 			base.LoadAction("go_shopping_tut");
 			base.LoadAction("grocery_store_tut");
 			base.LoadAction("interact_baby_tut");
+		//One time actions:
+			base.LoadAction("find_babysitter");
+		//Main:
+			base.LoadAction("find_job");
+			base.LoadAction("go_work");
+			base.LoadAction("go_shopping");
+//			base.LoadAction("interact_baby");
 		base.OnReady = function(){
 			main.Bind("main");
 			base.SetEvent("start");
@@ -36,13 +49,14 @@
 <body>
 	<div id="sidebar">
 		<h3>Your Assets</h3>
-		Money: $<span id="cash">200</span><br/>
+		Money: <span id="cash">$200</span><br/>
 		Job: <span id="job">Unemployed</span><br/>
-		Pay: $<span id="pay">N/A</span>/hr<br/>
+		Pay: <span id="pay">$0</span>/week<br/>
 
 		<h3>Your Child</h3>
 		<h4><span id="name">Spawn #1203</span></h4>
-		Age: <span id="age">Newborn</age><br/>
+		Age: <span id="age">Newborn</span><br/>
+		Happiness: <span id="happiness">50</span><br/>
 		Health: <span id="health">100</span><br/>
 		Hunger: <span id="hunger">0</span><br/>
 		Intelligence: <span id="int">Below Average</span><br/>

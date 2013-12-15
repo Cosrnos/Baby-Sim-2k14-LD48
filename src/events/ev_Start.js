@@ -51,7 +51,7 @@ ev_start.AfterGender = function(){
 
 	baby.SetGender(gender);
 	base.SetMessage("<p>Excellent! "+baby.Name+" is a "+baby.GetGender()+"!</p>"
-		+"<p>Parenting can be a lot of hard work and it's up to you to make sure this baby doesn't turn into something horrible like a cannibal or a washington politician.</p>"
+		+"<p>Parenting can be a lot of hard work and it's up to you to make sure this baby doesn't turn into something horrible like a cannibal or a Washington Politician.</p>"
 		+"<p>Before we begin, let's learn the basics of parenting!</p>");
 	base.SetMessageType(base.MessageType.OK);
 	base.SetMainCallback(ev_start.Tutorial_One);
@@ -63,7 +63,7 @@ ev_start.Tutorial_One = function(){
 	main.SetTip("<p>In order to support a child, you often require a form of currency to purchase things such as food, diapers and toys. This currency, or <strong>\"Money\"</strong> is often obtained through slave labor and dehumanizing work often referred to as <strong>\"Jobs.\"</strong></p>"
 		+"<p>These <strong>\"Jobs\"</strong> are obtained through many different methods and you are usually able to pick one you would not hate your existance in. However, since you made the irresponsible decision of obtaining a child when you didn't have a job, you're going to have to take the first one that you can find to avoid starving your child.</p>"
 		+"<p>Let's find one right now!</p>");
-	main.MakeAvailable("find_job");
+	main.MakeAvailable("find_job_tut");
 	main.ShowMenu();
 };
 
@@ -75,6 +75,7 @@ ev_start.Tutorial_Two = function(){
 };
 
 ev_start.Tutorial_Three = function(){
+	baby.FoodLeft = 4;
 	main.SetTip("<p>It looks like "+baby.Name+" is doing pretty well and you're already a better parent than the last three people who tried this! One key thing that babies love, however, is <strong>interaction.</strong> Apparently the little tykes can't get enough of it!</p>"
 		+"<p>Interacting with a baby may seem scary at first, but it's actually almost as easy as <strong>clicking a button!</strong> Let's interact with our baby right now!");
 	main.MakeAvailable("interact_baby_tut");

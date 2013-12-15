@@ -158,3 +158,16 @@ input[type=radio]:checked +img{
 	font-weight: 400;
 	color: rgba(15,255,179,.8);
 }
+
+#message strong{
+	color: rgba(0,176,120,1);
+}
+
+a {
+	color: rgba(0,176,120,1);
+	font-weight: 400;
+}
+
+a:hover{
+	color: rgba(0,0,0,1);
+}

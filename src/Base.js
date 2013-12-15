@@ -15,6 +15,8 @@ BSM.Base = (function(){
 
 	that.Var.Baby = {};
 
+	that.Var.Player = {};
+
 	that.Scenarios = [];
 
 	that.Assets = {};
@@ -48,13 +50,10 @@ BSM.Base = (function(){
 		that.LoadQueue = that.LoadQueue - 1;
 		if(that.LoadQueue == 0)
 			that.OnReady();
-
-		console.log("Registered event "+pEvent.Name);
 	};
 
 	that.RegisterAction = function(pAction){
-		if(main.RegisterAction(pAction.Name,pAction))
-			console.log("Registered action "+pAction.Name);
+		main.RegisterAction(pAction.Name,pAction);
 		
 		that.LoadQueue = that.LoadQueue - 1;
 
@@ -173,6 +172,36 @@ BSM.Base = (function(){
 	};
 
 	var prevCb = function(){};
+
+	that.GameOver = function(pMessage){
+		//Called when Failed
+		main.Clear();
+
+		this.SetMessage("<h3>Game Over!</h3>"
+			+"<p>"+pMessage+"</p>"
+			+"<hr/>"
+			+"<p>Thanks for testing out the first version of <strong>Baby Simulator 2k14!</strong> I'm glad to have your support in this development process. If you wouldn't mind <a href='https://docs.google.com/forms/d/13rSg37PvrCxnT_PskYbf8hBSvt4SQaAP1oogHh21Fp8/viewform' target='_blank'>taking a brief survey for me,</a> that would mean the world to me! I'm always looking to improve my games and my own programming, so let me know what you liked, what you didn't, and if you found any bugs!</p>"
+			+"<p>Happy Holidays, and Thanks for Playing!</p>"
+			+"<h4>-<a href='http://cosrnos.com/'>Cosrnos</a></h4>");
+		this.SetMessageType(this.MessageType.NONE);
+
+		this.ShowMessage();
+	};
+
+	that.EndGame = function(){
+		//Called when Failed
+		main.Clear();
+
+		this.SetMessage("<h3>There "+baby.HeShe()+" goes!</h3>"
+			+"<p>It's come to the point where "+baby.Name+" is all grown up! Since this is just a demo of the game, it's assumed that "+baby.HeShe()+" has become very successful and loves you quite a bit!</p>"
+			+"<hr/>"
+			+"<p>Thanks for testing out the first version of <strong>Baby Simulator 2k14!</strong> I'm glad to have your support in this development process. If you wouldn't mind <a href='https://docs.google.com/forms/d/13rSg37PvrCxnT_PskYbf8hBSvt4SQaAP1oogHh21Fp8/viewform' target='_blank'>taking a brief survey for me,</a> that would mean the world to me! I'm always looking to improve my games and my own programming, so let me know what you liked, what you didn't, and if you found any bugs!</p>"
+			+"<p>Happy Holidays, and Thanks for Playing!</p>"
+			+"<h4>-<a href='http://cosrnos.com/'>Cosrnos</a></h4>");
+		this.SetMessageType(this.MessageType.NONE);
+
+		this.ShowMessage();
+	};
 
 	that.SetAltCallback = function(pPrevCb){
 		prevCb = pPrevCb;
