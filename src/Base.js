@@ -53,6 +53,9 @@ BSM.Base = (function(){
 	};
 
 	that.CheckEvents = function(){
+		if(player.InTutorial)
+			return false;
+		
 		for(var i in this.Scenarios){
 			var e = this.Scenarios[i];
 			if(!e.Random && !e.Scheduled)
@@ -204,6 +207,7 @@ BSM.Base = (function(){
 			+"<p>"+pMessage+"</p>"
 			+"<hr/>"
 			+"<p>Thanks for testing out the first version of <strong>Baby Simulator 2k14!</strong> I'm glad to have your support in this development process. If you wouldn't mind <a href='https://docs.google.com/forms/d/13rSg37PvrCxnT_PskYbf8hBSvt4SQaAP1oogHh21Fp8/viewform' target='_blank'>taking a brief survey for me,</a> that would mean the world to me! I'm always looking to improve my games and my own programming, so let me know what you liked, what you didn't, and if you found any bugs!</p>"
+			+"<p>If you think I should turn this into a full game, let me know in the survey or on twitter!</p>"
 			+"<p>Happy Holidays, and Thanks for Playing!</p>"
 			+"<h4>-<a href='http://cosrnos.com/'>Cosrnos</a></h4>");
 		this.SetMessageType(this.MessageType.NONE);
@@ -227,6 +231,8 @@ BSM.Base = (function(){
 			override = "Your child has been tainted with <strong>the fandom</strong> and will grow up to spend most of its time on a blogging website filled with <strong>angsty teenagers</strong> and people pushing for <strong>social justice</strong>.";
 		if(baby.Name == "Andrew Hussie")
 			override = "Andrew Hussie will grow up to be a <strong>webcomic artist</strong> with a large following, though most people won't know what the comic is about. He will also grow up to have an <strong>intense love for horses</strong> and a <strong>strong appetite for cake</strong>.";
+		if(baby.Name == "Notch")
+			override = "Notch will grow up to create one of the best selling <strong>indie games</strong> of all time! He will have a <strong>glorious beard</strong> and will take a strong interest in <strong>mining</strong>. It is said that he will <strong>craft</strong> many games in his lifetime and that he will also participate in a challenge called <strong>The Ludum Dare</strong>";
 
 		var career = baby.GetCareer();
 
@@ -246,7 +252,7 @@ BSM.Base = (function(){
 					wording = "a debilitating <strong>Fear of Heights</strong>";
 				break;
 			}
-			text = "It looks like you've also caused your child to have "+wording;
+			text += "It looks like you've also caused your child to have "+wording;
 		}
 
 			if(override != "")
@@ -257,6 +263,7 @@ BSM.Base = (function(){
 			+"<p>"+text+"</p>"
 			+"<hr/>"
 			+"<p>Thanks for testing out the first version of <strong>Baby Simulator 2k14!</strong> I'm glad to have your support in this development process. If you wouldn't mind <a href='https://docs.google.com/forms/d/13rSg37PvrCxnT_PskYbf8hBSvt4SQaAP1oogHh21Fp8/viewform' target='_blank'>taking a brief survey for me,</a> that would mean the world to me! I'm always looking to improve my games and my own programming, so let me know what you liked, what you didn't, and if you found any bugs!</p>"
+			+"<p>If you think I should turn this into a full game, let me know in the survey or on twitter!</p>"
 			+"<p>Happy Holidays, and Thanks for Playing!</p>"
 			+"<h4>-<a href='http://cosrnos.com/'>Cosrnos</a></h4>");
 		this.SetMessageType(this.MessageType.NONE);

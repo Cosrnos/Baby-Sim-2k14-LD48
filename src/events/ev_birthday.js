@@ -39,6 +39,7 @@ ev_birthday.HaveParty = function(){
 	baby.FoodLeft += 1;
 	baby.AddHappiness(50); //Refilling would be too much but this is a good level yea
 	baby.AddKarma(1);
+	player.SpendMoney(300);
 	base.SetMessageType(base.MessageType.OK);
 	base.SetMainCallback(function(){
 		base.SetEvent("main");

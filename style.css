@@ -41,7 +41,7 @@ background: url('assets/logo.png');
 	left: 50%;
 	margin-left: -325px;
 	padding: 25px;
-	max-height: 500px;
+	max-height: 60%;
 	overflow-y: auto;
 }
 

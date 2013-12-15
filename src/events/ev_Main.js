@@ -30,7 +30,7 @@ ev_main.Route = function(){
 
 	tipText += "You have enough food for <strong>"+baby.FoodLeft+"</strong> month(s).<br/>";	
 	if(baby.FoodLeft <= 2)
-		tipText += "Maybe you should go buys some more.<br/>";
+		tipText += "Maybe you should go buy some more.<br/>";
 	tipText += "</br>";
 
 	if(baby.GetHappiness <= 40)

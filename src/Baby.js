@@ -130,16 +130,16 @@ var Baby = function(pName) {
 	};
 
 	that.GetSpeed = function(){
-		if(str < 5){
+		if(speed < 2){
 			return "Below Average";
 		}
-		if(str < 10){
+		if(speed < 5){
 			return "Average";
 		}
-		if(str < 15){
+		if(speed < 8){
 			return "Above Average";
 		}
-		if(str < 20){
+		if(speed < 10){
 			return "Cheetah";
 		}
 		return "Faster than sound!"		
@@ -150,48 +150,48 @@ var Baby = function(pName) {
 	};
 
 	that.GetInt = function(){
-		if(str < 5){
+		if(intelligence < 2){
 			return "Below Average";
 		}
-		if(str < 10){
+		if(intelligence < 5){
 			return "Average";
 		}
-		if(str < 15){
+		if(intelligence < 8){
 			return "Above Average";
 		}
-		if(str < 20){
+		if(intelligence < 10){
 			return "Super Smart";
 		}
 		return "Genius"		
 	};
 
 	that.GetCareer = function(){
-		if(str > 30 && str > speed && str > intelligence){
+		if(str > 10 && str > speed && str > intelligence){
 			return "a Professional Bodybuilder"
 		}
-		if(intelligence > 30 && intelligence > speed && intelligence > str){
+		if(intelligence > 10 && intelligence > speed && intelligence > str){
 			return "a Scientist who cures all disease"
 		}
-		if(speed > 30 && speed > str && speed > intelligence){
+		if(speed > 10 && speed > str && speed > intelligence){
 			return "an Olympic runner";
 		}
-		if(speed > 20 && str > 20 && intelligence > 20){
+		if(speed > 8 && str > 8 && intelligence > 8){
 			if(karma >= 0)
 				return "the next Jesus";
 			else
 				return "the Anti-christ";
 		}
-		if( intelligence > 15 && speed < 10 && str < 10)
+		if( intelligence > 8 && speed < 5 && str < 5)
 			return "a Brony";
-		if(speed > 15 && str > 15)
+		if(speed > 8 && str > 8)
 			return "a Gym Teacher";
-		if(intelligence > 15){
+		if(intelligence > 5){
 			if(karma >= 0)
 				return "a School Teacher";
 			else
 				return "a Lawyer";
 		}
-		if(this.GetLargestState() == "abandonment_issues" && karma <= 0 && intelligence < 15)
+		if(this.GetLargestState() == "abandonment_issues" && karma <= 0 && intelligence < 5)
 			return "a future recovering alcoholic!";
 
 		return "a freeloader";
@@ -212,16 +212,16 @@ var Baby = function(pName) {
 	};
 
 	that.GetStr = function(){
-		if(str < 5){
+		if(str < 2){
 			return "Below Average";
 		}
-		if(str < 10){
+		if(str < 5){
 			return "Average";
 		}
-		if(str < 15){
+		if(str < 8){
 			return "Above Average";
 		}
-		if(str < 20){
+		if(str < 10){
 			return "Super Strength";
 		}
 		return "Bodybuilder"
