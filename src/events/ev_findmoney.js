@@ -6,7 +6,7 @@ ev_findmoney.Chance = 5;
 ev_findmoney.OnOpen = function(){
 	ev_findmoney.LastBirthday++;
 	main.Clear();
-	var amount = Math.floor(Math.random()*1000)+100;
+	var amount = Math.floor(Math.random()*500)+100;
 	base.SetMessage("<h3>Hey!</h3>"
 		+"<p>You found someone's wallet on the street with <strong>$"+amount+"</strong> in it!</strong> Sweet!</p>");
 	player.Money += amount;

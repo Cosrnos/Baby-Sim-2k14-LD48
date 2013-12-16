@@ -1,7 +1,7 @@
 var ac_roo_show = new BSM.Action("roo_show","Go see a show!");
 
 var stages = ["What Stage", "Which Stage", "This Tent", "That Tent", "The Other Tent"];
-var bands = ["Justin Timberlake","Pretty Lights","Justice","Mumford & Sons","Jack Johnson","Knife Party"];
+var bands = ["Justin Timberlake","Pretty Lights","Justice","Mumford &amp; Sons","Jack Johnson","Knife Party"];
 
 ac_roo_show.OnLoad = function(){
 	var rnd = Math.floor(Math.random()*stages.length);

@@ -4,7 +4,8 @@ var Baby = function(pName) {
 	if(pName == "")
 		pName = "Gary Busey";
 
-	that.Name = pName;
+	that.Name = "<strong>"+pName+"</strong>";
+	that.RealName = pName;
 
 	var years = 0;
 	var months = 0;
@@ -79,8 +80,19 @@ var Baby = function(pName) {
 
 	that.UpdateStats = function(){
 		document.getElementById("name").innerHTML = this.Name;
-		document.getElementById("age").innerHTML = years+" years and "+months+" months";
-		document.getElementById("health").innerHTML = health;
+		var ageStr = "";
+		if(years == 1)
+			ageStr += "1 yr. ";
+		if(years > 1)
+			ageStr += years+" yrs. ";
+		if(months == 0)
+			ageStr += "Newborn";
+		if(months == 1)
+			ageStr += "1 mo.";
+		if(months > 1)
+			ageStr += months+" mos.";
+
+		document.getElementById("age").innerHTML = ageStr;
 		document.getElementById("happiness").innerHTML = happiness;
 		document.getElementById("hunger").innerHTML = this.GetHunger();
 		document.getElementById("int").innerHTML = this.GetInt();

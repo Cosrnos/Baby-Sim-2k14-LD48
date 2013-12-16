@@ -9,7 +9,7 @@ ev_main.Route = function(){
 	//Check Events
 	if(base.CheckEvents())
 		return;	//Event is taking over!
-	var tipText = "<p>";
+	var tipText = "<h3>What would you like to do?</h3><p>";
 
 	if(player.InTutorial){
 		tipText += "Now that you've completed the tutorial you're on your own! Every action you complete will advance you one month forward. Normally, once "+baby.Name+" is 18 years old, "+baby.HeShe()+" would choose "+baby.HisHer()+" profession and you'd find out how you did as a parent! However, since this is the <strong>Super Special Ludum Dare Edition</strong>, we're going to stop you at 3 years and let you know how you did!</p><p>";

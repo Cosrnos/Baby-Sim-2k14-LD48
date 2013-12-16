@@ -195,12 +195,12 @@ BSM.Player = function(){
 	that.UpdateStats = function(){
 		document.getElementById("cash").innerHTML = "$"+this.Money;
 		document.getElementById("job").innerHTML = this.Job.Title;
-		document.getElementById("pay").innerHTML = "$"+this.Job.Pay;
 	};
 
 	that.GetPaid = function(pPay){
 		if(typeof pPay == 'undefined')
 			pPay == this.Job.Pay;
+		
 		this.Money += pPay;
 		this.UpdateStats();
 	};

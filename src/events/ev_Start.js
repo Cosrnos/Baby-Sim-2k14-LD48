@@ -33,7 +33,7 @@ ev_start.AfterName = function(){
 			+"<p>Congratulations! "+baby.Name+" is completely healthy and has 99% of its appendages! However we're still not sure what the gender of the child is (we're horrible doctors!)</p>"
 			+"<p>Could you take a look? Is your baby a boy or a girl?</p>"
 			+'<div class="inline-group">'
-			+'<label class="sx" for="sx_boy"><input id="sx_boy" type="radio" name="sex" value="1"></input><img src="assets/boy.png" width="64" height="64" />Boy</label>'
+			+'<label class="sx" for="sx_boy"><input id="sx_boy" checked="true" type="radio" name="sex" value="1"></input><img src="assets/boy.png" width="64" height="64" />Boy</label>'
 			+'<label class="sx" for="sx_girl"><input id="sx_girl" type="radio" name="sex" value="0"></input><img src="assets/girl.png" width="64" height="64" />Girl</label>'
 			+"</div>");
 	base.SetMainCallback(function(){

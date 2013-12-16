@@ -254,7 +254,7 @@ ac_go_shopping.OnLoad = function(){
 
 		main.ShowMenu();
 	});
-
+/*
 	main.AddButton("store_clothing","Fancy Pants Clothing Store",function(){
 		main.Clear();
 
@@ -268,6 +268,7 @@ ac_go_shopping.OnLoad = function(){
 
 		main.ShowMenu();
 	});
+*/
 
 	main.AddButton("store_leave","Leave the Mall",function(){
 		main.Clear();

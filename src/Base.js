@@ -206,8 +206,8 @@ BSM.Base = (function(){
 		this.SetMessage("<h3>Game Over!</h3>"
 			+"<p>"+pMessage+"</p>"
 			+"<hr/>"
-			+"<p>Thanks for testing out the first version of <strong>Baby Simulator 2k14!</strong> I'm glad to have your support in this development process. If you wouldn't mind <a href='https://docs.google.com/forms/d/13rSg37PvrCxnT_PskYbf8hBSvt4SQaAP1oogHh21Fp8/viewform' target='_blank'>taking a brief survey for me,</a> that would mean the world to me! I'm always looking to improve my games and my own programming, so let me know what you liked, what you didn't, and if you found any bugs!</p>"
-			+"<p>If you think I should turn this into a full game, let me know in the survey or on twitter!</p>"
+			+"<p>Thanks for testing out the Ludum Dare edition of <strong>Baby Simulator 2k14!</strong> I'm glad to have your support in this development process. If you wouldn't mind <a href='https://docs.google.com/forms/d/13rSg37PvrCxnT_PskYbf8hBSvt4SQaAP1oogHh21Fp8/viewform' target='_blank'>taking a brief survey for me,</a> that would mean the world to me! I'm always looking to improve my games and my own programming, so let me know what you liked, what you didn't, and if you found any bugs!</p>"
+			+"<p>I will be turning this into a full featured game, complete with actual animations, mini-games and a lot more content. I'm currently looking for an artist. If you're interested, why not <a href='mailto: me@cosrnos.com'>contact me</a>?</p>"
 			+"<p>Happy Holidays, and Thanks for Playing!</p>"
 			+"<h4>-<a href='http://cosrnos.com/'>Cosrnos</a></h4>");
 		this.SetMessageType(this.MessageType.NONE);
@@ -219,20 +219,24 @@ BSM.Base = (function(){
 		//Called when Failed
 		main.Clear();
 		var override = "";
-		if(baby.Name == "Kim Kardashian")
-			override = "Kim Kardashian will grow up to be <strong>extremely famous</strong> as a <strong>super-model</strong>. Unfortunately, most people will simply remember her as a <strong>low-end reality tv star</strong> and for her philanthropic work in the <strong>sex tape industry.</strong> Nevertheless, Kim will be a <strong>Good Person</strong> and will go on to make you a very proud parent. A very proud parent that always gets <strong>10%</strong> of all "+baby.HisHer()+" earnings!";
-		if(baby.Name == "Cosrnos" || baby.Name == "Alex Roth" || baby.Name == "cosmos")
-			override = "Not much is known about what cosrnos will grow up to be. One thing is for sure: he will participate in a <strong>game jam</strong> and develop a game that simulates the growth of <strong>babies</strong> with a lot of <strong>bad jokes</strong> in it.";
-		if(baby.Name == "Charlie Sheen")
-			override = "Charlie Sheen will grow up to do a lot of <strong>Cocaine</strong> and hook up with a lot of <strong>Strippers</strong>. He will always be <strong>#Winning</strong> in life!";
-		if(baby.Name == "Skrillex")
-			override = "Skrillex will grow up to be a <strong>music producer</strong> of great fame. However, he will be even more famous for his <strong>long black hair</strong> and <strong>thick rimmed glasses.</strong> He will also drop <strong>many a bass</strong>.";
-		if(baby.Name == "Doctor Who" || baby.Name == "Superwholockian")
+		if(baby.RealName == "Kim Kardashian")
+			override = baby.Name+" will grow up to be <strong>extremely famous</strong> as a <strong>super-model</strong>. Unfortunately, most people will simply remember her as a <strong>low-end reality tv star</strong> and for her philanthropic work in the <strong>sex tape industry.</strong> Nevertheless, Kim will be a <strong>Good Person</strong> and will go on to make you a very proud parent. A very proud parent that always gets <strong>10%</strong> of all "+baby.HisHer()+" earnings!";
+		if(baby.RealName == "Cosrnos" || baby.RealName == "Alex Roth" || baby.RealName == "cosmos")
+			override = "Not much is known about what "+baby.Name+" will grow up to be. One thing is for sure: he will participate in a <strong>game jam</strong> and develop a game that simulates the growth of <strong>babies</strong> with a lot of <strong>bad jokes</strong> in it.";
+		if(baby.RealName == "Charlie Sheen")
+			override = baby.Name+" will grow up to do a lot of <strong>Cocaine</strong> and hook up with a lot of <strong>Strippers</strong>. He will always be <strong>#Winning</strong> in life!";
+		if(baby.RealName == "Skrillex")
+			override = baby.Name+" will grow up to be a <strong>music producer</strong> of great fame. However, he will be even more famous for his <strong>long black hair</strong> and <strong>thick rimmed glasses.</strong> He will also drop <strong>many a bass</strong>.";
+		if(baby.RealName == "Doctor Who" || baby.RealName == "Superwholockian")
 			override = "Your child has been tainted with <strong>the fandom</strong> and will grow up to spend most of its time on a blogging website filled with <strong>angsty teenagers</strong> and people pushing for <strong>social justice</strong>.";
-		if(baby.Name == "Andrew Hussie")
-			override = "Andrew Hussie will grow up to be a <strong>webcomic artist</strong> with a large following, though most people won't know what the comic is about. He will also grow up to have an <strong>intense love for horses</strong> and a <strong>strong appetite for cake</strong>.";
-		if(baby.Name == "Notch")
-			override = "Notch will grow up to create one of the best selling <strong>indie games</strong> of all time! He will have a <strong>glorious beard</strong> and will take a strong interest in <strong>mining</strong>. It is said that he will <strong>craft</strong> many games in his lifetime and that he will also participate in a challenge called <strong>The Ludum Dare</strong>";
+		if(baby.RealName == "Andrew Hussie")
+			override = baby.Name+" will grow up to be a <strong>webcomic artist</strong> with a large following, though most people won't know what the comic is about. He will also grow up to have an <strong>intense love for horses</strong> and a <strong>strong appetite for cake</strong>.";
+		if(baby.RealName == "Notch")
+			override = baby.Name+" will grow up to create one of the best selling <strong>indie games</strong> of all time! He will have a <strong>glorious beard</strong> and will take a strong interest in <strong>mining</strong>. It is said that he will <strong>craft</strong> many games in his lifetime and that he will also participate in a challenge called <strong>The Ludum Dare</strong>";
+		if(baby.RealName == "Lady Gaga")
+			override = baby.Name+" will grow up to be a <strong>professional singer</strong> and become famous throughout the world. She will have an <strong>affinity for meat dresses</strong> and a <strong>great desire to help people</strong>. Yaaaas, she will be beautiful. Yaaaas, she will be gorgeous. She will also have a horde of <strong>little monsters</strong> to do her bidding.";
+		if(baby.RealName == "Beyonce")
+			override = baby.Name+" will grow up to be a <strong>professional singer</strong> and become famous throughout the universe. She will write songs about <strong>Single ladies</strong> and will one day release a <strong>surprise album</strong>.";
 
 		var career = baby.GetCareer();
 
@@ -262,8 +266,8 @@ BSM.Base = (function(){
 			+"<p>It's come to the point where "+baby.Name+" is three years old! Since this is a demo, the game stops here! However, we can already tell a lot about your baby!</p>"
 			+"<p>"+text+"</p>"
 			+"<hr/>"
-			+"<p>Thanks for testing out the first version of <strong>Baby Simulator 2k14!</strong> I'm glad to have your support in this development process. If you wouldn't mind <a href='https://docs.google.com/forms/d/13rSg37PvrCxnT_PskYbf8hBSvt4SQaAP1oogHh21Fp8/viewform' target='_blank'>taking a brief survey for me,</a> that would mean the world to me! I'm always looking to improve my games and my own programming, so let me know what you liked, what you didn't, and if you found any bugs!</p>"
-			+"<p>If you think I should turn this into a full game, let me know in the survey or on twitter!</p>"
+			+"<p>Thanks for testing out the Ludum Dare edition of <strong>Baby Simulator 2k14!</strong> I'm glad to have your support in this development process. If you wouldn't mind <a href='https://docs.google.com/forms/d/13rSg37PvrCxnT_PskYbf8hBSvt4SQaAP1oogHh21Fp8/viewform' target='_blank'>taking a brief survey for me,</a> that would mean the world to me! I'm always looking to improve my games and my own programming, so let me know what you liked, what you didn't, and if you found any bugs!</p>"
+			+"<p>I will be turning this into a full featured game, complete with actual animations, mini-games and a lot more content. I'm currently looking for an artist. If you're interested, why not <a href='mailto: me@cosrnos.com'>contact me</a>?</p>"
 			+"<p>Happy Holidays, and Thanks for Playing!</p>"
 			+"<h4>-<a href='http://cosrnos.com/'>Cosrnos</a></h4>");
 		this.SetMessageType(this.MessageType.NONE);

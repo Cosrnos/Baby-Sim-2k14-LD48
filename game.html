@@ -2,6 +2,12 @@
 <html>
 <head>
 	<title>Baby Simulator 2014 - Ludum Dare #28 Edition</title>
+	<meta property="og:title" content="Baby Simulator 2k14"/>
+	<meta property="og:site_name" content="Cosrnos" />
+	<meta property="og:url" content="http://cosrnos.com/games/baby-simulator/"/>
+	<meta property="og:image" content="http://cosrnos.com/games/baby-simulator/assets/logo.png"/>
+	<meta property="fb:app_id" content="187633594761655"/>
+	<meta property="og:description" content="You are tasked with the simple task of raising a child from birth. Do you have what it takes to be a parent? #BabySim2k14"/>
 	<link rel="stylesheet" href="style.css" />
 	<!-- Util -->
 	<script src="src/Action.js">
@@ -30,6 +36,7 @@
 		base.LoadEvent("birthday");
 		base.LoadEvent("gaybabyjail");
 		base.LoadEvent("findmoney");
+		base.LoadEvent("babyscience");
 		//Load Actions
 		//Tutorial:
 			base.LoadAction("find_job_tut");
@@ -43,6 +50,7 @@
 			base.LoadAction("roo_lay");
 			base.LoadAction("roo_food");
 			base.LoadAction("roo_shop");
+			base.LoadAction("roo_show");
 		//End Event Specific
 		//Main:
 			base.LoadAction("find_job");
@@ -57,25 +65,47 @@
 	</script>
 </head>
 <body>
-	<div id="sidebar">
-		<h3>Your Assets</h3>
-		Money: <span id="cash">$200</span><br/>
-		Job: <span id="job">Unemployed</span><br/>
-		Pay: <span id="pay">$0</span><br/>
+	<!--social plugins-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.net/en_GB/all.js#xfbml=1&appId=187633594761655";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>	
+	<header>
+		<div id="left-header">
+			<div id="logo">
+			</div>
+			<h2>LD#28 Demo</br>Bonnaroo Edition</h2>
+		</div>
 
-		<h3>Your Child</h3>
-		<h4><span id="name">Spawn #1203</span></h4>
-		Age: <span id="age">Newborn</span><br/>
-		Happiness: <span id="happiness">50</span><br/>
-		Health: <span id="health">100</span><br/>
-		Hunger: <span id="hunger">0</span><br/>
+		<div id="right-header">
+			<h2>#BabySim2k14</h2><br/>
+<a href="https://twitter.com/cosrnos" class="twitter-follow-button" data-show-count="false">Follow @cosrnos</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div class="fb-share-button" data-href="http://cosrnos.com/games/baby-simulator/" data-type="button_count" style="height:20px; vertical-align: top; padding-right: 5px;"></div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="cosrnos" data-hashtags="BabySim2k14">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		</div>
+
+	</header>
+
+	<div id="sidebar">
+		<span id="name">Spawn #1203</span><br/>
+		<img src="assets/dollar.png" /><span id="cash">$200</span><br/>
+		<img src="assets/briefcase.png" /><span id="job">Unemployed</span><br/><br/>
+		<img src="assets/calendar.png" /><span id="age">Newborn</span><br/>
+		<img src="assets/happiness.png" /><span id="happiness">50</span><br/><br/>
+		Hunger: <span id="hunger">Stuffed</span><img src="assets/bottle0.png" style="margin: 0px;"/><br/>
 		Intelligence: <span id="int">Below Average</span><br/>
 		Strength: <span id="str">Below Average</span><br/>
-		Speed: <span id="speed">Slow as Hell</span><br/>
-		<br/>Score: <span id="score">0</span>
+		Speed: <span id="speed">Below Average</span><br/>
 	</div>
 
 	<div id="main">
+		Game Loading. Please be patient...
 	</div>
 
 	<div id="dimmer">
@@ -87,10 +117,5 @@
 		<div id="msg_end">
 		</div>
 	</div>
-
-	<footer>
-		<div id="logo">
-		</div>
-	</footer>
 </body>
 </html>
