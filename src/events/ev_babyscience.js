@@ -37,7 +37,7 @@ ev_babyscience.AllowExperiment = function(){
 	baby.AddInt(intMod);
 	baby.AddSpd(spdMod);
 	baby.AddStr(strMod);
-	player.Money += 1000;
+	player.AddMoney(1000);
 	base.SetMessageType(base.MessageType.OK);
 	base.SetMainCallback(function(){
 		base.SetEvent("main");

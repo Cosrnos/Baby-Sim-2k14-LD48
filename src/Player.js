@@ -201,9 +201,13 @@ BSM.Player = function(){
 		if(typeof pPay == 'undefined')
 			pPay == this.Job.Pay;
 		
-		this.Money += pPay;
-		this.UpdateStats();
+		this.AddMoney(pPay);
 	};
+
+	that.AddMoney = function(pAmount){
+		this.Money += pAmount;
+		this.UpdateStats();
+	}
 
 	that.SpendMoney = function(pAmount){
 		this.Money -= pAmount;
