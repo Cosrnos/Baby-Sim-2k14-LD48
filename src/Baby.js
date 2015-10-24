@@ -226,7 +226,7 @@ var Baby = function(pName) {
 	that.AddSpd = that.AddSpeed;
 
 	that.AddFood = function (pAmount) {
-		FoodLeft += pAmount;
+		this.FoodLeft += pAmount;
 		this.UpdateStats();
 	};
 
