@@ -44,10 +44,12 @@ var Baby = function(pName) {
 	};
 
 	that.GoodBad = function(){
-		if(karma >= 0)
+		if(karma > 0)
 			return "good";
-		else
+		else if (karma < 0)
 			return "bad";
+		else
+			return "neutral";
 	}
 
 	that.GetKarma = function(){
