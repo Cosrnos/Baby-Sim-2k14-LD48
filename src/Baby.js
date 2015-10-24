@@ -310,7 +310,7 @@ var Baby = function(pName) {
 			hunger += 10;
 			happiness -= 5;
 		}else{
-			hunger -= 10;
+			hunger = Math.max(0, hunger - 10);
 			this.FoodLeft -= 1;
 		}
 

@@ -193,8 +193,8 @@ BSM.Player = function(){
 	};
 
 	that.UpdateStats = function(){
-		document.getElementById("cash").innerHTML = "$"+this.Money;
-		document.getElementById("job").innerHTML = this.Job.Title;
+		document.getElementById("cash").innerHTML = "$"+this.Money.toCommaString();
+		document.getElementById("job").innerHTML = this.Job.Title+" ($"+this.Job.Pay.toCommaString()+"/mo)";
 	};
 
 	that.GetPaid = function(pPay){
