@@ -36,16 +36,18 @@ ac_go_work.OnLoad = function(){
 				"While you were getting ready to go to work, you almost kicked "+baby.Name+" in the face again. You have to remember to get that thing a bell...",
 				"Your co-workers heard you were trying to raise a child on your own. Rather than be compassionate, they've decided to silently judge you without knowing your background.",
 				"You had such a bad day at work that you come home and begin drinking. Poor "+baby.Name+" has to witness this and has been scarred for life."];
+
 				var seed = Math.floor(Math.random()*outcomes.length);
+				var TheHappen = outcomes[seed];
+				var thePay = player.Job.Pay;
+
 				if(seed == 6)
 					thePay += 300;
 				if(seed == 11)
-					thePay -= 50;
+					thePay = Math.floor(thePay* 5/6);
 				if(seed == 14)
 					baby.AddKarma(-1);
 
-				var TheHappen = outcomes[seed];
-				var thePay = player.Job.Pay;
 				main.SetTip("<h3>Another day at work...</h3>"
 					+"<p>"+TheHappen+"</p><p>You made <strong>$"+thePay+"</strong></p>");
 				player.GetPaid(thePay);
