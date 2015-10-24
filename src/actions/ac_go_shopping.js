@@ -31,7 +31,7 @@ ac_go_shopping.OnLoad = function(){
 					main.SetTip("<h3>Got Milk!</h3>"
 						+"<p>You've purchased 4 Months worth of milk!</p>");
 					player.SpendMoney(400);
-					baby.FoodLeft += 4;
+					baby.AddFood(4);
 					main.AddButton("leave_store","Leave Store",function(){
 						ac_go_shopping.OnLoad();
 					});
@@ -47,7 +47,7 @@ ac_go_shopping.OnLoad = function(){
 				main.SetTip("<h3>You got Peas!</h3>"
 					+"<p>You've purchased 4 Months worth of peas!</p>");
 				player.SpendMoney(400);
-				baby.FoodLeft += 4;
+				baby.AddFood(4);
 				main.AddButton("leave_store","Leave Store",function(){
 					ac_go_shopping.OnLoad();
 				});
@@ -61,7 +61,7 @@ ac_go_shopping.OnLoad = function(){
 				main.SetTip("<h3>Baby Carrots!</h3>"
 					+"<p>You've purchased 6 Months worth of carrots!</p>");
 				player.SpendMoney(590);
-				baby.FoodLeft += 6;
+				baby.AddFood(6);
 				main.AddButton("leave_store","Leave Store",function(){
 					ac_go_shopping.OnLoad();
 				});
@@ -77,7 +77,7 @@ ac_go_shopping.OnLoad = function(){
 				main.SetTip("<h3>Kibble & Bits!</h3>"
 					+"<p>You've purchased 4 months worth of Dog Food!</p>");
 				player.SpendMoney(450);
-				baby.FoodLeft += 4;
+				baby.AddFood(4);
 				main.AddButton("leave_store","Leave Store",function(){
 					ac_go_shopping.OnLoad();
 				});
@@ -91,7 +91,7 @@ ac_go_shopping.OnLoad = function(){
 				main.SetTip("<h3>Captain Coco!</h3>"
 					+"<p>You've purchased 6 months worth of Cereal!</p>");
 				player.SpendMoney(650);
-				baby.FoodLeft += 4;
+				baby.AddFood(6);
 				main.AddButton("leave_store","Leave Store",function(){
 					ac_go_shopping.OnLoad();
 				});
@@ -104,8 +104,8 @@ ac_go_shopping.OnLoad = function(){
 
 				main.SetTip("<h3>Mama-Mia!</h3>"
 					+"<p>You've purchased 8 months worth of Spaghetti!</p>");
-				player.SpendMoney(450);
-				baby.FoodLeft += 4;
+				player.SpendMoney(750);
+				baby.AddFood(8);
 				main.AddButton("leave_store","Leave Store",function(){
 					ac_go_shopping.OnLoad();
 				});

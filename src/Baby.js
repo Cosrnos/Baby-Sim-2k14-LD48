@@ -225,6 +225,11 @@ var Baby = function(pName) {
 
 	that.AddSpd = that.AddSpeed;
 
+	that.AddFood = function (pAmount) {
+		FoodLeft += pAmount;
+		this.UpdateStats();
+	};
+
 	that.GetStr = function(){
 		if(str < 2){
 			return "Below Average";
