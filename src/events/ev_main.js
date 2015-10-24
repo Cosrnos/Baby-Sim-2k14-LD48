@@ -21,7 +21,7 @@ ev_main.Route = function(){
 		main.MakeAvailable("find_babysitter");
 	}
 	if(player.BabysitterCost > 0 && player.Money <= 200)
-		tipText += "You're running low on money and you won't be able to pay your babysitter next month! Why not go to work?</br>";
+		tipText += "You're running low on money! At this rate, you won't be able to pay the babysitter next month! Why not go to work?</br>";
 	
 	if(player.Job.Title != 'Unemployed')
 		main.MakeAvailable("go_work");
