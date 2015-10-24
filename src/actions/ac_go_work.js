@@ -17,8 +17,8 @@ ac_go_work.OnLoad = function(){
 				player.Job.OnPromotion();
 				main.SetTip("<h3>A Promotion!</h3>"
 					+"<p>You've been doing a great job at work lately and your old boss got fired for saying sexual things to the secretary. You have now been promoted to <strong>"+player.Job.Title+"!</strong></p>"
-					+"<p>Additionally, you are now making <strong>$"+player.Job.Pay+"</strong>!</p>"
-					+"<p>Your next promotion will be <strong>"+player.Job.NextPromotion+"</strong></p>");
+					+"<p>Additionally, you are now making <strong>$"+player.Job.Pay.toCommaString()+"</strong> per month!</p>"
+					+"<p>Your next promotion will be <strong>"+player.Job.NextPromotion+"</strong>.</p>");
 				player.GetPaid(player.Job.Pay);
 			}else{
 				var outcomes = ["Today you found out exactly what a complete mental breakdown looks like as one of your co-workers was escorted from the building.",
