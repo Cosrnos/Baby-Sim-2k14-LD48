@@ -83,16 +83,19 @@ var Baby = function(pName) {
 	that.UpdateStats = function(){
 		document.getElementById("name").innerHTML = this.Name;
 		var ageStr = "";
-		if(years == 1)
-			ageStr += "1 yr. ";
-		if(years > 1)
-			ageStr += years+" yrs. ";
-		if(months == 0)
+		if (years == 0 && months == 0) {
 			ageStr += "Newborn";
-		if(months == 1)
-			ageStr += "1 mo.";
-		if(months > 1)
-			ageStr += months+" mos.";
+		}
+		else{
+			if(years == 1)
+				ageStr += "1 yr. ";
+			if(years > 1)
+				ageStr += years+" yrs. ";
+			if(months == 1)
+				ageStr += "1 mo.";
+			else
+				ageStr += months+" mos.";
+		}
 
 		document.getElementById("age").innerHTML = ageStr;
 		document.getElementById("happiness").innerHTML = happiness;
