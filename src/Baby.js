@@ -136,11 +136,6 @@ var Baby = function(pName) {
 		return hunger;
 	};
 
-	that.AddSpeed = function(pAmount){
-		speed += pAmount;
-		this.UpdateStats();
-	};
-
 	that.GetSpeed = function(){
 		if(speed < 2){
 			return "Below Average";
@@ -218,10 +213,17 @@ var Baby = function(pName) {
 		this.UpdateStats();
 	};
 
-	that.AddStr = function(pAmount){
+	that.AddStr = function (pAmount) {
 		str += pAmount;
 		this.UpdateStats();
 	};
+
+	that.AddSpeed = function (pAmount) {
+		speed += pAmount;
+		this.UpdateStats();
+	};
+
+	that.AddSpd = that.AddSpeed;
 
 	that.GetStr = function(){
 		if(str < 2){
