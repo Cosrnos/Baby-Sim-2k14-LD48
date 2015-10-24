@@ -44,7 +44,7 @@ ac_go_work.OnLoad = function(){
 				if(seed == 6)
 					thePay += 300;
 				if(seed == 11)
-					thePay = Math.floor(thePay* 5/6);
+					thePay = Math.floor(thePay* 4/5);
 				if(seed == 14)
 					baby.AddKarma(-1);
 
