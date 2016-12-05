@@ -241,19 +241,19 @@ BSM.Base = (function(){
 		var career = baby.GetCareer();
 
 		var mainState = baby.GetLargestState();
-		var text = "For instance, your actions have already taught your child how to function in society. On this path, your child is probably going to turn out to be a <strong>"+baby.GoodBad()+" person!</strong>. ";
+		var text = "For instance, your actions have already taught your child how to function in society. On this path, your child is probably going to turn out to be a <strong>"+baby.GoodBad()+" person!</strong> ";
 		text += "Based on its upbringing, your child is going to grow up to be <strong>"+career+"</strong>!<br/>";
 		if(mainState != "none"){
 			var wording = "";
 			switch(mainState){
 				case "street_cred":
-					wording = "a lot of <strong>Street Cred</strong>";
+					wording = "a lot of <strong>Street Cred</strong>.";
 				break;
 				case "abandonment_issues":
-					wording = "quite a few <strong>Abandonment Issues</strong>";
+					wording = "quite a few <strong>Abandonment Issues</strong>.";
 				break;
 				case "fear_of_heights":
-					wording = "a debilitating <strong>Fear of Heights</strong>";
+					wording = "a debilitating <strong>Fear of Heights</strong>.";
 				break;
 			}
 			text += "It looks like you've also caused your child to have "+wording;

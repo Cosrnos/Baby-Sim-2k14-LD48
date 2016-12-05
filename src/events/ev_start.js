@@ -1,7 +1,7 @@
 var ev_start = new BSM.Event("start");
 
 ev_start.OnOpen = function(){
-	base.SetMessage("<h3>Welcome!</h3><p>Welcome to Baby Simulator 2014! A game brought to you by Cosrnos.</p>"
+	base.SetMessage("<h3>Welcome!</h3><p>Welcome to Baby Simulator 2014! A game brought to you by <a href=\"http://cosrnos.com/\" target=\"_blank\">Cosrnos</a>.</p>"
 +"<p>You have just given birth to a beautiful child and it's up to you to make sure it grows up to be successful! Be careful though, because <strong>you only get one!</strong></p>"
 +"<p>Don't do anything that might cause it to fail in life or resent you or you'll end up in a horrible retirment home where the staff burns you with cigarettes and steals your things! Do you have what it takes to be a parent?<br/><em>[This game contains mature content]</em><p>");
 	base.SetMessageType(base.MessageType.CONTINUE);

@@ -17,8 +17,8 @@ ac_go_work.OnLoad = function(){
 				player.Job.OnPromotion();
 				main.SetTip("<h3>A Promotion!</h3>"
 					+"<p>You've been doing a great job at work lately and your old boss got fired for saying sexual things to the secretary. You have now been promoted to <strong>"+player.Job.Title+"!</strong></p>"
-					+"<p>Additionally, you are now making <strong>$"+player.Job.Pay+"</strong>!</p>"
-					+"<p>Your next promotion will be <strong>"+player.Job.NextPromotion+"</strong></p>");
+					+"<p>Additionally, you are now making <strong>$"+player.Job.Pay.toCommaString()+"</strong> per month!</p>"
+					+"<p>Your next promotion will be <strong>"+player.Job.NextPromotion+"</strong>.</p>");
 				player.GetPaid(player.Job.Pay);
 			}else{
 				var outcomes = ["Today you found out exactly what a complete mental breakdown looks like as one of your co-workers was escorted from the building.",
@@ -36,16 +36,18 @@ ac_go_work.OnLoad = function(){
 				"While you were getting ready to go to work, you almost kicked "+baby.Name+" in the face again. You have to remember to get that thing a bell...",
 				"Your co-workers heard you were trying to raise a child on your own. Rather than be compassionate, they've decided to silently judge you without knowing your background.",
 				"You had such a bad day at work that you come home and begin drinking. Poor "+baby.Name+" has to witness this and has been scarred for life."];
+
 				var seed = Math.floor(Math.random()*outcomes.length);
+				var TheHappen = outcomes[seed];
+				var thePay = player.Job.Pay;
+
 				if(seed == 6)
 					thePay += 300;
 				if(seed == 11)
-					thePay -= 50;
+					thePay = Math.floor(thePay* 4/5);
 				if(seed == 14)
 					baby.AddKarma(-1);
 
-				var TheHappen = outcomes[seed];
-				var thePay = player.Job.Pay;
 				main.SetTip("<h3>Another day at work...</h3>"
 					+"<p>"+TheHappen+"</p><p>You made <strong>$"+thePay+"</strong></p>");
 				player.GetPaid(thePay);

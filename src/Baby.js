@@ -44,10 +44,12 @@ var Baby = function(pName) {
 	};
 
 	that.GoodBad = function(){
-		if(karma >= 0)
+		if(karma > 0)
 			return "good";
-		else
+		else if (karma < 0)
 			return "bad";
+		else
+			return "neutral";
 	}
 
 	that.GetKarma = function(){
@@ -81,16 +83,19 @@ var Baby = function(pName) {
 	that.UpdateStats = function(){
 		document.getElementById("name").innerHTML = this.Name;
 		var ageStr = "";
-		if(years == 1)
-			ageStr += "1 yr. ";
-		if(years > 1)
-			ageStr += years+" yrs. ";
-		if(months == 0)
+		if (years == 0 && months == 0) {
 			ageStr += "Newborn";
-		if(months == 1)
-			ageStr += "1 mo.";
-		if(months > 1)
-			ageStr += months+" mos.";
+		}
+		else{
+			if(years == 1)
+				ageStr += "1 yr. ";
+			if(years > 1)
+				ageStr += years+" yrs. ";
+			if(months == 1)
+				ageStr += "1 mo.";
+			else
+				ageStr += months+" mos.";
+		}
 
 		document.getElementById("age").innerHTML = ageStr;
 		document.getElementById("happiness").innerHTML = happiness;
@@ -134,11 +139,6 @@ var Baby = function(pName) {
 
 	that.GetRHunger = function(){
 		return hunger;
-	};
-
-	that.AddSpeed = function(pAmount){
-		speed += pAmount;
-		this.UpdateStats();
 	};
 
 	that.GetSpeed = function(){
@@ -218,8 +218,20 @@ var Baby = function(pName) {
 		this.UpdateStats();
 	};
 
-	that.AddStr = function(pAmount){
+	that.AddStr = function (pAmount) {
 		str += pAmount;
+		this.UpdateStats();
+	};
+
+	that.AddSpeed = function (pAmount) {
+		speed += pAmount;
+		this.UpdateStats();
+	};
+
+	that.AddSpd = that.AddSpeed;
+
+	that.AddFood = function (pAmount) {
+		this.FoodLeft += pAmount;
 		this.UpdateStats();
 	};
 
@@ -303,7 +315,7 @@ var Baby = function(pName) {
 			hunger += 10;
 			happiness -= 5;
 		}else{
-			hunger -= 10;
+			hunger = Math.max(0, hunger - 10);
 			this.FoodLeft -= 1;
 		}
 

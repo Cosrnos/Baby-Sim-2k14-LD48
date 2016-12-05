@@ -85,3 +85,6 @@ BSM.Main = (function(){
 })();
 
 var main = BSM.Main;
+Number.prototype.toCommaString = function() {
+    return this.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}

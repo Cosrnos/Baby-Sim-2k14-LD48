@@ -8,8 +8,8 @@ ev_findmoney.OnOpen = function(){
 	main.Clear();
 	var amount = Math.floor(Math.random()*500)+100;
 	base.SetMessage("<h3>Hey!</h3>"
-		+"<p>You found someone's wallet on the street with <strong>$"+amount+"</strong> in it!</strong> Sweet!</p>");
-	player.Money += amount;
+		+"<p>You found someone's wallet on the street with <strong>$"+amount+"</strong> in it! Sweet!</p>");
+	player.AddMoney(amount);
 	base.SetMessageType(base.MessageType.OK);
 	base.SetMainCallback(function(){
 		base.SetEvent("main");
